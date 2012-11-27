@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+		<script src="js/SignInApp.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.css"/>
+		<link rel="stylesheet" href="css/main.css"/>
+	<title>CIS Sandbox Queue</title>
+</head>
+<body>
+
+	<div id="cdc-wrapper">
+			<?php
+				mysql_connect("localhost" , "d3rp", "derp") or die(mysql_error());
+				mysql_select_db("test") or die();
+				
+				$qry = "SELECT * FROM visit";
+				$result = mysql_query($qry);
+				
+				while($row = mysql_fetch_array($result)){
+					//if($row["needHelp"]=="Yes"){
+						echo $row['id'] . " is looking for help with " . $row['class'];
+						echo "<br />";
+					//}
+				}
+			?>
+	</div>
+</body>
+</html>
